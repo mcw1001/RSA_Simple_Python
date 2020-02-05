@@ -4,11 +4,6 @@ import RSA_encrypt
 def test_RSA():
     print('Key Information:')
     key = RSA_encrypt.get_RSAKey()
-    #print('name = ',key[0])
-    msg = input("Enter a message to encrypt: ")
-    while msg=="":
-        print("Invalid input, try again.")
-        msg = input("Enter a message to encrypt: ")
     p=key[1]
     print('p = ',p)
     q=key[2]
@@ -22,7 +17,12 @@ def test_RSA():
     d=key[6]
     print('d = ',d)
     print()
-
+    
+    msg = input("Enter a message to encrypt: ")
+    while msg=="":
+        print("Invalid input, try again.")
+        msg = input("Enter a message to encrypt: ")
+        
     plaintext = msg
     key = (m,e) # this is the public key
     ciphertext = RSA_encrypt.e_RSA(plaintext,key)
@@ -42,3 +42,8 @@ def test_RSA():
     print()
 
     return
+
+#executes test_RSA as main automatically, comment out if you want to
+#   run the function yourself
+if __name__ == "__main__":
+    test_RSA()
